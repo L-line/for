@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave a Note</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        #noteInput {
+            width: 70%;
+            padding: 8px;
+            margin: 10px;
+        }
+        #addNoteBtn {
+            padding: 10px;
+            cursor: pointer;
+        }
+        #notesContainer {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        .note {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Leave a Note</h1>
+
+    <input type="text" id="noteInput" value="Contact 0967 223 5323">
+    <button id="addNoteBtn" onclick="addNote()">Add Note</button>
+
+    <div id="notesContainer">
+        <!-- Notes will be displayed here -->
+    </div>
+
+    <script>
+        // Function to add a note
+        function addNote() {
+            var noteInput = document.getElementById('noteInput');
+            var notesContainer = document.getElementById('notesContainer');
+
+            if (noteInput.value.trim() !== '') {
+                var newNote = document.createElement('div');
+                newNote.className = 'note';
+                newNote.innerHTML = noteInput.value;
+
+                notesContainer.appendChild(newNote);
+                noteInput.value = '';
+            }
+        }
+
+        // Initial call to add the pre-filled note
+        addNote();
+    </script>
+
+</body>
+</html>
